@@ -12,7 +12,7 @@ using System.Linq;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-
+[DefaultExecutionOrder(-1)]
 public class Outline : MonoBehaviour {
   private static HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
 

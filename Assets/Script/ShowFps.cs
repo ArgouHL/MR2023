@@ -11,6 +11,9 @@ public class ShowFps : MonoBehaviour
 
     private void Start()
     {
+#if UNITY_ANDROID
+        Application.targetFrameRate = 999;
+#endif
         InvokeRepeating("UpdateFPS", 0, 0.2f);
     }
 
