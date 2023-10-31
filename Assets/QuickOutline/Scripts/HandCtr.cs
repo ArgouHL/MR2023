@@ -39,7 +39,7 @@ public class HandCtr : MonoBehaviour
     }
     public void UpdatePos(Transform imageTransform)
     {
-        transform.position = imageTransform.position;
+        transform.position = imageTransform.position+new Vector3(-0.05f,0,0);
         transform.rotation = imageTransform.rotation;
     }
 

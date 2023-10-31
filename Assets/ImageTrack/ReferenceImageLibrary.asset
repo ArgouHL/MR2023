@@ -25,5 +25,5 @@ MonoBehaviour:
       m_GuidHigh: 16785515367572730954
     m_Size: {x: 0.15, y: 0.15}
     m_SpecifySize: 1
-    m_Name: ArHand
+    m_Name: ArHandOrg
     m_Texture: {fileID: 0}
