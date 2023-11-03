@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class GrabableObj :MonoBehaviour
 {
-    private bool canGrab = false;
+    private bool canGrab = true;
+    public bool CanGrab
+    {
+        get { return canGrab; }
+    }
     private Outline _outline;
-    private Collider _collider;
+
+  
     private void Start()
     {
         _outline = GetComponent<Outline>();
-        _collider = GetComponent<Collider>();
+       
     }
     public void GrabUp(Transform hand)
     {
+        Debug.Log("GrapUp");
+        canGrab = false;
         transform.parent = hand;
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
+        _outline.enabled = false;
     }
 
     public void SetOutLine(bool enable)
     {
         _outline.enabled = enable;
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-          
-    }
+    
 
 }
