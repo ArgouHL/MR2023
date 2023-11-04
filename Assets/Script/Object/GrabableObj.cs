@@ -5,6 +5,7 @@ using UnityEngine;
 public class GrabableObj :MonoBehaviour
 {
     private bool canGrab = true;
+    public ObjTag objTag;
     public bool CanGrab
     {
         get { return canGrab; }
@@ -34,3 +35,5 @@ public class GrabableObj :MonoBehaviour
     
 
 }
+
+public enum ObjTag { BookA,BookB ,PhotoA,MediA}

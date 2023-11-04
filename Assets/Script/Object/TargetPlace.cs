@@ -8,11 +8,14 @@ public class TargetPlace : MonoBehaviour
     [SerializeField] Transform place;
     [SerializeField] Outline outline;
     private bool canPlace=true;
+    [SerializeField] private GrabableObj targetObj;
+    public ObjTag objTag;
+
     public bool CanPlace
     {
         get { return canPlace; }
     }
-    [SerializeField] private GrabableObj targetObj;
+
     public GrabableObj TargetObj
     {
         get { return targetObj; }

@@ -6,26 +6,28 @@ using UnityEngine;
 public class HandGrabCtr : MonoBehaviour
 {
     private GrabableObj _grabableObj;
-    private bool canGrab = false;
+    private bool canGrab = true;
     private void OnCollisionEnter(Collision collision)
     {
         if (!canGrab)
             return;
         Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == "Place"&& _grabableObj != null)
+        if (collision.gameObject.CompareTag("Place") && _grabableObj != null)
         {
             PlaceDown(collision);
         }
-        else if(collision.gameObject.tag == "Object"&& _grabableObj == null)
+        else if (collision.gameObject.CompareTag("Object") && _grabableObj == null)
         {
             PickUpObj(collision);
-        }      
+        }
     }
 
     private void PlaceDown(Collision collision)
     {
         TargetPlace _place = collision.transform.GetComponent<TargetPlace>();
         if (!_place.CanPlace)
+            return;
+        if (_place.objTag != _grabableObj.objTag)
             return;
         _place.PlaceDownObj(_grabableObj);
         _grabableObj = null;
@@ -42,6 +44,6 @@ public class HandGrabCtr : MonoBehaviour
 
     internal void SetGrabEnable(bool v)
     {
-        throw new NotImplementedException();
+        canGrab = v;
     }
 }
