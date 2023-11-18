@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrabableObj :MonoBehaviour
+public class GrabableObj : MonoBehaviour
 {
-    private bool canGrab = true;
+    [SerializeField] private bool canGrab = true;
     public ObjTag objTag;
+    public TargetPlace[] places;
     public bool CanGrab
     {
         get { return canGrab; }
     }
-    private Outline _outline;
+    [SerializeField] private Outline _outline;
 
-  
+
     private void Start()
     {
-        _outline = GetComponent<Outline>();
-       
+        _outline = GetComponentInChildren<Outline>();
+
     }
     public void GrabUp(Transform hand)
     {
@@ -24,16 +25,20 @@ public class GrabableObj :MonoBehaviour
         canGrab = false;
         transform.parent = hand;
         transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
+        transform.rotation = hand.rotation;
         _outline.enabled = false;
+        foreach (var p in places)
+        { p.ShowOutline(); }
     }
 
     public void SetOutLine(bool enable)
     {
-        _outline.enabled = enable;
+
+        if (canGrab)
+            _outline.enabled = enable;
     }
-    
+
 
 }
 
-public enum ObjTag { BookA,BookB ,PhotoA,MediA}
+public enum ObjTag { BookA, BookB, PhotoA, MediA }

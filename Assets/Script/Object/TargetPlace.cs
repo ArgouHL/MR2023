@@ -6,20 +6,21 @@ using UnityEngine;
 public class TargetPlace : MonoBehaviour
 {
     [SerializeField] Transform place;
-    [SerializeField] Outline outline;
-    private bool canPlace=true;
-    [SerializeField] private GrabableObj targetObj;
+    public Outline outline;
+    private bool canPlace = true;
+    //[SerializeField] private GrabableObj targetObj;
     public ObjTag objTag;
+    public bool isDone = false;
 
     public bool CanPlace
     {
         get { return canPlace; }
     }
 
-    public GrabableObj TargetObj
-    {
-        get { return targetObj; }
-    }
+    //public GrabableObj TargetObj
+    //{
+    //    get { return targetObj; }
+    //}
 
     public Transform GetPlace()
     {
@@ -28,10 +29,29 @@ public class TargetPlace : MonoBehaviour
 
     internal void PlaceDownObj(GrabableObj _grabableObj)
     {
-        _grabableObj.transform.parent = place.transform;
-        _grabableObj.transform.localPosition = Vector3.zero;
-        _grabableObj.transform.localRotation = Quaternion.identity;
-        outline.enabled = false;
+        if (!canPlace)
+            return;
+        _grabableObj.transform.parent = null ;
+        _grabableObj.transform.position = place.position;        
+        _grabableObj.transform.rotation = place.rotation;
+        foreach (var p in _grabableObj.places)
+        {
+            p.outline.enabled = false;
+        }
         canPlace = false;
+        isDone = true;
+    }
+
+    internal void ShowOutline()
+    {
+        if (!canPlace)
+            return;
+        outline.enabled = true;
+    }
+
+    internal void HideOutLine()
+    {
+
+        outline.enabled = false;
     }
 }

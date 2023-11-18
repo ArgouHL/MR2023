@@ -7,13 +7,14 @@ public class HandCtr : MonoBehaviour
 
     private Coroutine apperTransparent;
     private Coroutine hideTransparent;
-    private Material  handMat;
+    [SerializeField]  private Material  handMat;
     [SerializeField] private float apperenceTime;
     private HandGrabCtr _handGrabCtr;
+    [SerializeField] private Animator[] anis;
 
    private void Start()
     {
-        handMat = GetComponentInChildren<MeshRenderer>().materials[0];
+     
         _handGrabCtr = GetComponentInChildren<HandGrabCtr>();
     }
 
@@ -41,7 +42,7 @@ public class HandCtr : MonoBehaviour
     }
     public void UpdatePos(Transform imageTransform)
     {
-        transform.position = imageTransform.position+new Vector3(-0.05f,0,0);
+        transform.position = imageTransform.position/*+new Vector3(-0.05f,0,0)*/;
         transform.rotation = imageTransform.rotation;
     }
 
@@ -73,5 +74,14 @@ public class HandCtr : MonoBehaviour
             yield return null;
         }
         hideTransparent = null;
+    }
+
+
+    public void SetHandClose(bool b)
+    {
+        foreach(var a in anis)
+        {
+            a.SetBool("Close", b);
+        }
     }
 }

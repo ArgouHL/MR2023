@@ -11,7 +11,7 @@ Shader "Custom/Outline Fill" {
     [Enum(UnityEngine.Rendering.CompareFunction)] _ZTest("ZTest", Float) = 0
 
     _OutlineColor("Outline Color", Color) = (1, 1, 1, 1)
-    _OutlineWidth("Outline Width", Range(0, 10)) = 2
+    _OutlineWidth("Outline Width", Range(0, 100)) = 2
   }
 
   SubShader {
@@ -63,10 +63,11 @@ Shader "Custom/Outline Fill" {
         UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
 
         float3 normal = any(input.smoothNormal) ? input.smoothNormal : input.normal;
-        float3 viewPosition = UnityObjectToViewPos(input.vertex);
+        float factor = any(input.smoothNormal) ? 1.1 : 1;
+        float3 viewPosition = UnityObjectToViewPos(input.vertex * factor);
         float3 viewNormal = normalize(mul((float3x3)UNITY_MATRIX_IT_MV, normal));
 
-        output.position = UnityViewToClipPos(viewPosition + viewNormal * -viewPosition.z * _OutlineWidth / 1000.0);
+        output.position = UnityViewToClipPos(viewPosition + viewNormal * -viewPosition.z*0.5 * _OutlineWidth/ 1000.0);
         output.color = _OutlineColor;
 
         return output;
