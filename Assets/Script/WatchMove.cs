@@ -61,7 +61,7 @@ public class WatchMove : MonoBehaviour
     {
         if (MoveCoro != null)
             return;
-        MoveCoro = StartCoroutine(MoveIE(new Vector3(1, 0, -1)));
+        MoveCoro = StartCoroutine(MoveIE(new Vector3(   1, 0, -1)));
     }
 
 
@@ -92,5 +92,10 @@ public class WatchMove : MonoBehaviour
             Move(v);
             yield return null;
         }
+    }
+
+    private void Update()
+    {
+        transform.rotation = Quaternion.identity;
     }
 }

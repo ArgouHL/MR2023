@@ -23,7 +23,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 10764832524388805202
       m_GuidHigh: 16785515367572730954
-    m_Size: {x: 0.15, y: 0.15}
+    m_Size: {x: 0.19, y: 0.19}
     m_SpecifySize: 1
     m_Name: ArHandOrg
     m_Texture: {fileID: 0}
