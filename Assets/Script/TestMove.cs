@@ -14,20 +14,15 @@ public class TestMove : MonoBehaviour
     [SerializeField] private GameObject _camera;
     [SerializeField] private float rotationSpeed;
     Vector2 _movementInput;
-    PlayerInpur input;
 
 
-    private void Awake()
-    {
-        input = new PlayerInpur();
-        input.UI.Enable();
-        input.Player.Enable();
-    }
+
+    
 
     private void OnEnable()
     {
-        input.Player.Move.canceled+=StopMove;
-        input.Player.Move.performed += StartMove;
+        PlayerInputManager.instance.input.Player.Move.canceled+=StopMove;
+        PlayerInputManager.instance.input.Player.Move.performed += StartMove;
     }
 
     private void StartMove(InputAction.CallbackContext obj)
@@ -44,8 +39,8 @@ public class TestMove : MonoBehaviour
 
     private void Update()
     {
-        float XValue = input.Player.Look.ReadValue<Vector2>().x;
-        float YValue = -input.Player.Look.ReadValue<Vector2>().y;
+        float XValue = PlayerInputManager.instance.input.Player.Look.ReadValue<Vector2>().x;
+        float YValue = -PlayerInputManager.instance.input.Player.Look.ReadValue<Vector2>().y;
         _camera.transform.rotation = Quaternion.Euler(YValue * rotationSpeed + _camera.transform.rotation.eulerAngles.x, XValue * rotationSpeed + _camera.transform.rotation.eulerAngles.y, 0f);
 
         var v2 = _movementInput;

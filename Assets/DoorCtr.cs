@@ -49,6 +49,8 @@ public class DoorCtr : MonoBehaviour
     {
         yield return new WaitForSeconds(1.7f);
         Door.PlayOneShot(DoorSound);
-        LeanTween.rotate(gameObject, new Vector3(0, 90, 0), 2).setEase(LeanTweenType.easeInOutQuad);
+        LeanTween.rotate(gameObject, new Vector3(0, 90, 0), 2).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() =>
+        LeanTween.delayedCall(3, () => SceneFade.instance.FadeOutAndLoad(2, Color.white))
+        );
     }
 }

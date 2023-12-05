@@ -16,20 +16,20 @@ LightingSettings:
   m_AlbedoBoost: 2.58
   m_IndirectOutputScale: 0.67
   m_UsingShadowmask: 1
-  m_BakeBackend: 2
-  m_LightmapMaxSize: 2048
-  m_BakeResolution: 40
+  m_BakeBackend: 1
+  m_LightmapMaxSize: 512
+  m_BakeResolution: 20
   m_Padding: 4
-  m_LightmapCompression: 3
+  m_LightmapCompression: 0
   m_AO: 1
-  m_AOMaxDistance: 2
-  m_CompAOExponent: 3.82
-  m_CompAOExponentDirect: 0.65
+  m_AOMaxDistance: 1
+  m_CompAOExponent: 0.34
+  m_CompAOExponentDirect: 2.14
   m_ExtractAO: 0
   m_MixedBakeMode: 2
   m_LightmapsBakeMode: 1
   m_FilterMode: 1
-  m_LightmapParameters: {fileID: 15200, guid: 0000000000000000f000000000000000, type: 0}
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
   m_ExportTrainingData: 0
   m_TrainingDataDestination: TrainingData
   m_RealtimeResolution: 2
@@ -51,10 +51,10 @@ LightingSettings:
   m_PVRFilteringMode: 2
   m_PVRDenoiserTypeDirect: 1
   m_PVRDenoiserTypeIndirect: 1
-  m_PVRDenoiserTypeAO: 2
-  m_PVRFilterTypeDirect: 0
+  m_PVRDenoiserTypeAO: 1
+  m_PVRFilterTypeDirect: 1
   m_PVRFilterTypeIndirect: 1
-  m_PVRFilterTypeAO: 1
+  m_PVRFilterTypeAO: 0
   m_PVRFilteringGaussRadiusDirect: 1
   m_PVRFilteringGaussRadiusIndirect: 0
   m_PVRFilteringGaussRadiusAO: 0

@@ -36,12 +36,12 @@ public class ImageTrackCtr : MonoBehaviour
                 return;
             if (arImage.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
             {
-                arhand.ShowHand();
+            //    arhand.ShowHand();
                 arhand.UpdatePos(arImage.transform);
             }
             else if (arImage.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Limited || arImage.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.None)
             {
-                arhand.HideHand();
+               // arhand.HideHand();
             }
 
 
@@ -50,18 +50,5 @@ public class ImageTrackCtr : MonoBehaviour
     }
 
 
-    private void ShowAndMoveArHand(ARTrackedImage arImage)
-    {
-
-        arhand.ShowHand();
-        arhand.UpdatePos(arImage.transform);
-
-    }
-
-    private void HideArHand(ARTrackedImage arImage)
-    {
-        if (arImage.referenceImage.name != arhand.name)
-            return;
-        arhand.HideHand();
-    }
+   
 }

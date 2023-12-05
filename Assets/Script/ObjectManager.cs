@@ -12,7 +12,10 @@ public class ObjectManager : MonoBehaviour
     {
         instance = this;
     }
-
+    private void Start()
+    {
+     //   SceneFade.instance.FadeIn();
+    }
 
 
     public void SetOutline(bool b)

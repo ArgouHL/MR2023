@@ -19,3 +19,7 @@ MonoBehaviour:
     m_GuidHigh: 15073259618196992169
     m_Name: ArHandOrg
     m_Entries: []
+  - m_GuidLow: 5044860403339479803
+    m_GuidHigh: 16506063005998802074
+    m_Name: PickUP
+    m_Entries: []

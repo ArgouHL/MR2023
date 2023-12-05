@@ -5,7 +5,7 @@ using UnityEngine;
 public class SfxCtr : MonoBehaviour
 {
     public static SfxCtr instance;
-    private AudioSource correctSound;
+   [SerializeField] private AudioSource correctSound;
     private void Awake()
     {
         instance = this;
